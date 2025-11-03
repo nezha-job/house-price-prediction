@@ -1,4 +1,4 @@
-Copyright (c) 2025 Abcdef Abc
+Copyright (c) 2025 Ozodbek Shavkatov
 
 All Rights Reserved.
 
