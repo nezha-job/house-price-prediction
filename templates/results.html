@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bashoratlar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    
+    {% extends 'base.html' %}
+    {% block title %}Barcha bashoratlar{% endblock %}
+
+    {% block content %}
+        <div class="card shadow p-4">
+            <h2 class="mb-4">Barcha bashoratlar</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Xonalar</th>
+                        <th>Maydon</th>
+                        <th>Yosh</th>
+                        <th>Narx</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                    <tr>
+                        <td>{{ row.rooms }}</td>
+                        <td>{{ row.area }}</td>
+                        <td>{{ row.age }}</td>
+                        <td>${{ row.predicted_price }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="/" class="btn btn-primary">Ortga</a>
+        </div>
+    {% endblock %}
+
+    <div class="container mt-5">
+        <div class="card shadow p-4">
+            <h2 class="mb-4">📋 Barcha bashoratlar</h2>
+            {% if data %}
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>OverallQual</th>
+                            <th>GrLivArea</th>
+                            <th>GarageArea</th>
+                            <th>TotalBsmtSF</th>
+                            <th>FullBath</th>
+                            <th>YearBuilt</th>
+                            <th>PredictedPrice ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+                            <td>{{ row.OverallQual }}</td>
+                            <td>{{ row.GrLivArea }}</td>
+                            <td>{{ row.GarageArea }}</td>
+                            <td>{{ row.TotalBsmtSF }}</td>
+                            <td>{{ row.FullBath }}</td>
+                            <td>{{ row.YearBuilt }}</td>
+                            <td><strong>${{ row.PredictedPrice }}</strong></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+                <div class="alert alert-warning">Hozircha hech qanday bashorat mavjud emas.</div>
+            {% endif %}
+            <a href="/" class="btn btn-secondary mt-3">⬅️ Asosiy sahifaga</a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

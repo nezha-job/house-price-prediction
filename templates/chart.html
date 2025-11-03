@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uy narxlari grafigi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block title %}Uy narxlari grafigi{% endblock %}
+
+    {% block content %}
+        <div class="card shadow p-4 text-center">
+            <h2 class="mb-4">Qurilgan yilga qarab uy narxlari</h2>
+            <img src="{{ url_for('static', filename='chart.png') }}" class="img-fluid rounded shadow" alt="Grafik">
+            <br><br>
+            <a href="/" class="btn btn-primary">⬅️ Orqaga</a>
+        </div>
+    {% endblock %}
+
+    <h2>Qurilgan yilga qarab uy narxlari</h2>
+    <img src="{{ url_for('static', filename='chart.png') }}" width="800">
+    <br><br>
+    <a href="/">⬅️ Orqaga</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
